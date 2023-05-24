@@ -198,3 +198,162 @@ return "Player 2 won!";
 }
 };
 ```
+
+## Century From Year
+
+```JS
+#1:
+//remove the given code and insert below in:
+const century = year => Math.ceil(year/100)
+
+#2:
+function century(year) {
+  return Math.ceil(year/100); //using ceiling method to round up to nearest century (100)
+}
+```
+
+## Cat years, Dog years
+
+```JS
+#1:
+var humanYearsCatYearsDogYears = function(y) {
+  if (y == 1) return [1, 15, 15]
+  if (y == 2) return [2, 24, 24]
+  return [y, (y-2) * 4 + 24, (y-2) * 5 + 24]
+}
+
+#2:
+const humanYearsCatYearsDogYears = humanYears => [
+  humanYears,
+  ( humanYears - 1 ? 16 : 11 ) + 4 * humanYears,
+  ( humanYears - 1 ? 14 : 10 ) + 5 * humanYears,
+];
+
+```
+
+## Total amount of points
+
+```JS
+#1:
+const points = g => g.reduce((a, [x, _, y]) => a + (x > y ? 3 : x == y), 0)
+
+#2:
+function points(games) {
+  let total = 0;
+  games.map(game => {
+    if (game[0] === game[2]) {
+      total += 1;
+    } else if (game[0] > game[2]) {
+      total += 3;
+    }
+  });
+  return total;
+}
+```
+
+## Remove String Spaces
+
+```JS
+#1:
+function noSpace(x){
+  return x.replace(/\s/g, '');
+}
+
+#2:
+function noSpace(x){return x.split(' ').join('')}
+```
+
+## Convert a string to an array
+
+```JS
+#1:
+function stringToArray(string){
+  return string.split(' ');
+}
+
+#2:
+const stringToArray = string => string.split(' ');
+```
+
+## String repeat
+
+```JS
+#1:
+function repeatStr (n, s) {
+  return s.repeat(n);
+}
+
+#2:
+function repeatStr (n, s) {
+var str="";
+for(var i=0; i < n; i++)
+  str+=s;
+  return str;
+}
+```
+
+## Basic Mathematical Operations
+
+```JS
+#1:
+function basicOp(operation, value1, value2) {
+    switch (operation) {
+        case '+':
+            return value1 + value2;
+        case '-':
+            return value1 - value2;
+        case '*':
+            return value1 * value2;
+        case '/':
+            return value1 / value2;
+        default:
+            return 0;
+    }
+}
+#2:
+function basicOp(o, a, b) {
+  return eval(a+o+b);
+}
+```
+
+## Even or Odd
+
+```JS
+#1:
+function even_or_odd(number) {
+  return number % 2 ? "Odd" : "Even"
+}
+
+#2:
+function even_or_odd(number) {
+  if (number%2 == 0) {
+    return "Even";
+  } else {
+    return "Odd";
+  }
+}
+```
+
+## Counting sheep...
+
+```JS
+#1:
+function countSheeps(arrayOfSheeps) {
+  return arrayOfSheeps.filter(Boolean).length;
+}
+
+#2:
+function countSheeps(arrayOfSheep) {
+  // TODO May the force be with you
+  var num = 0;
+
+  for(var i = 0; i < arrayOfSheep.length; i++)
+    if(arrayOfSheep[i] == true)
+      num++;
+
+  return num;
+}
+
+#3:
+let countSheeps = x => x.filter( s => s ).length;
+```

@@ -48,3 +48,44 @@ function solution(str){
 return str.split("").reverse().join("");
 }
 ```
+
+## Vowel Count
+
+```JS
+#1:
+function getCount(str) {
+  return (str.match(/[aeiou]/ig)||[]).length;
+}
+
+#2:
+function getCount(str) {
+  var vowelsCount = 0;
+  for (index in str){
+    switch (str[index]) {
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+    vowelsCount++;
+    break;
+    }
+  }
+  return vowelsCount;
+}
+
+#3:
+function getCount(str) {
+  var vowelsCount = 0;
+  var vowels = ["a","e","i","o","u"];
+  for(var i = 0;i < str.length;i++){
+    for(var j=0;j<vowels.length;j++){
+      if(str[i] === vowels[j]){
+        vowelsCount++;
+      }
+    }
+  }
+
+  return vowelsCount;
+}
+```
